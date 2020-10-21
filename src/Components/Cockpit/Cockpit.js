@@ -5,10 +5,11 @@ const Cockpit = ({ persons, showPersons, togglePersons, title }) => {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // example http request...
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       alert("Saved data to cloud");
     }, 1000);
     return () => {
+      clearTimeout(timer);
       console.log("[Cockpit.js] cleanup work in useEffect");
     };
   }, [persons]);
