@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import classes from "./Cockpit.module.css";
 
-const Cockpit = ({ persons, showPersons, togglePersons, title }) => {
+const Cockpit = ({ personsLength, showPersons, togglePersons, title }) => {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // example http request...
@@ -12,7 +12,7 @@ const Cockpit = ({ persons, showPersons, togglePersons, title }) => {
       clearTimeout(timer);
       console.log("[Cockpit.js] cleanup work in useEffect");
     };
-  }, [persons]);
+  }, []);
 
   useEffect(() => {
     console.log("[Cockpit.js] 2nd useEffect");
@@ -27,11 +27,11 @@ const Cockpit = ({ persons, showPersons, togglePersons, title }) => {
   }
 
   let assignedClasses = [];
-  if (persons.length <= 2) {
+  if (personsLength <= 2) {
     assignedClasses.push(classes.red);
   }
 
-  if (persons.length < 2) {
+  if (personsLength < 2) {
     assignedClasses.push(classes.bold);
   }
   return (
@@ -45,4 +45,4 @@ const Cockpit = ({ persons, showPersons, togglePersons, title }) => {
   );
 };
 
-export default Cockpit;
+export default React.memo(Cockpit);
