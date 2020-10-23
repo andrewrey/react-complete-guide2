@@ -13,6 +13,7 @@ class Persons extends Component {
       console.log("it is true");
       return true;
     } else {
+      console.log("it is false");
       return false;
     }
   }
