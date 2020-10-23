@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classes from "./App.module.css";
 import Cockpit from "../Components/Cockpit/Cockpit";
 import Persons from "../Components/Persons/Persons";
+import WithClass from "../hoc/WithClass";
 
 class App extends Component {
   constructor(props) {
@@ -75,11 +76,11 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <WithClass classes={classes.App}>
         <button onClick={() => this.setState({ showCockpit: false })}>Hide Cockpit</button>
         {this.state.showCockpit ? <Cockpit personsLength={this.state.persons.length} showPersons={this.state.showPersons} togglePersons={this.togglePersonsHandler} title={title} /> : null}
         {persons}
-      </div>
+      </WithClass>
     );
   }
 }
