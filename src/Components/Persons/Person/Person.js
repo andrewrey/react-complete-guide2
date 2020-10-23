@@ -5,6 +5,13 @@ import Aux from "../../../hoc/Aux";
 import withClassFunc from "../../../hoc/withClassFunc";
 
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.inputElementRef = React.createRef();
+  }
+  componentDidUpdate() {
+    console.log(this.inputElementRef.current.value);
+  }
   render() {
     let { name, age, children, deleteName, nameChange } = this.props;
     console.log("[Person.js] rendering...");
@@ -14,7 +21,7 @@ class Person extends Component {
           My name is {name} and I am {age} years old.
         </p>
         <p>{children}</p>
-        <input type="text" onChange={nameChange} value={name} />
+        <input ref={this.inputElementRef} type="text" onChange={nameChange} value={name} />
       </Aux>
     );
   }
