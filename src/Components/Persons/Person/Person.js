@@ -13,10 +13,11 @@ class Person extends Component {
     console.log(this.inputElementRef.current.value);
   }
   render() {
-    let { name, age, children, deleteName, nameChange } = this.props;
+    let { name, age, children, deleteName, nameChange, login } = this.props;
     console.log("[Person.js] rendering...");
     return (
       <Aux>
+        {login ? <p>Authenticated!</p> : <p>Please log in!</p>}
         <p onClick={deleteName}>
           My name is {name} and I am {age} years old.
         </p>

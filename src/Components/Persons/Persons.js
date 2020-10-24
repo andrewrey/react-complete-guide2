@@ -7,16 +7,16 @@ class Persons extends Component {
     return state;
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("[Persons.js] shouldComponentUpdate");
-    if (nextProps.persons !== this.props.persons) {
-      console.log("it is true");
-      return true;
-    } else {
-      console.log("it is false");
-      return false;
-    }
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("[Persons.js] shouldComponentUpdate");
+  //   if (nextProps.persons !== this.props.persons) {
+  //     console.log("it is true");
+  //     return true;
+  //   } else {
+  //     console.log("it is false");
+  //     return false;
+  //   }
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("[Persons.js] getSnapshoBeforeUpdate");
@@ -31,10 +31,10 @@ class Persons extends Component {
     console.log("[Persons.js] componentWillUnmount");
   }
   render() {
-    let { persons, deleteName, nameChange } = this.props;
+    let { persons, deleteName, nameChange, login } = this.props;
     console.log("[Persons.js] rendering...");
     return persons.map((person) => {
-      return <Person key={person.id} name={person.name} age={person.age} deleteName={() => deleteName(person.id)} nameChange={(e) => nameChange(e, person.id)} />;
+      return <Person key={person.id} name={person.name} age={person.age} deleteName={() => deleteName(person.id)} nameChange={(e) => nameChange(e, person.id)} login={login} />;
     });
   }
 }

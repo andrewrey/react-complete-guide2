@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import classes from "./Cockpit.module.css";
 
-const Cockpit = ({ personsLength, showPersons, togglePersons, title }) => {
+const Cockpit = ({ personsLength, showPersons, togglePersons, title, login }) => {
   const toggleBtnRef = useRef(null);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const Cockpit = ({ personsLength, showPersons, togglePersons, title }) => {
       <button ref={toggleBtnRef} className={btnClass} onClick={togglePersons}>
         Toggle Persons
       </button>
+      <button onClick={login}>Log in</button>
     </div>
   );
 };
