@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import classes from "./Cockpit.module.css";
 
 const Cockpit = ({ personsLength, showPersons, togglePersons, title }) => {
+  const toggleBtnRef = useRef(null);
+
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // example http request...
@@ -15,6 +17,7 @@ const Cockpit = ({ personsLength, showPersons, togglePersons, title }) => {
   }, []);
 
   useEffect(() => {
+    console.log(toggleBtnRef.current, "toggleTest");
     console.log("[Cockpit.js] 2nd useEffect");
     return () => {
       console.log("[Cockpit.js] 2nd cleanup work in useEffect");
@@ -38,7 +41,7 @@ const Cockpit = ({ personsLength, showPersons, togglePersons, title }) => {
     <div className={classes.Cockpit}>
       <h1>{title}</h1>
       <p className={assignedClasses.join(" ")}>This is really working!</p>
-      <button className={btnClass} onClick={togglePersons}>
+      <button ref={toggleBtnRef} className={btnClass} onClick={togglePersons}>
         Toggle Persons
       </button>
     </div>
