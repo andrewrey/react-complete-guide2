@@ -31,10 +31,10 @@ class Persons extends Component {
     console.log("[Persons.js] componentWillUnmount");
   }
   render() {
-    let { persons, deleteName, nameChange, login } = this.props;
+    let { persons, deleteName, nameChange } = this.props;
     console.log("[Persons.js] rendering...");
     return persons.map((person) => {
-      return <Person key={person.id} name={person.name} age={person.age} deleteName={() => deleteName(person.id)} nameChange={(e) => nameChange(e, person.id)} login={login} />;
+      return <Person key={person.id} name={person.name} age={person.age} deleteName={() => deleteName(person.id)} nameChange={(e) => nameChange(e, person.id)} />;
     });
   }
 }
